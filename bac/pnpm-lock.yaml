@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@fontsource/fusion-pixel-8px-proportional-tc':
+        specifier: ^5.2.5
+        version: 5.2.5
     devDependencies:
       '@libsql/client':
         specifier: ^0.15.15
@@ -357,6 +361,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/fusion-pixel-8px-proportional-tc@5.2.5':
+    resolution: {integrity: sha512-atNRhoHI4+2CB9HZl9uKu/2dT+HwuorgKDE9vpMQ008GdgqIaJNgdcbrTwgqgwcTlI+EHheU0qSj2kanMFYrzg==}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -1392,6 +1399,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.12':
     optional: true
+
+  '@fontsource/fusion-pixel-8px-proportional-tc@5.2.5': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
