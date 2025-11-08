@@ -1,9 +1,10 @@
 import type { PageServerLoad } from './$types';
 import type { Actions } from './$types';
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
 import { db } from '$lib/server/db/index';
 import { users } from '$lib/server/db/schema';
+import { SignJWT } from 'jose';
 
 export const load : PageServerLoad = async (event) => {
     const allUsers = await db.select().from(users);
@@ -14,7 +15,7 @@ export const load : PageServerLoad = async (event) => {
             { name: 'tony', email: 'tony@kmitl.ac.th', password: 'tonynaja' }
         ]);
     }
-    // return { users: allUsers };
+    return { users: event.locals.user };
 }
 
 export const actions: Actions = {
@@ -26,9 +27,14 @@ export const actions: Actions = {
         if (user.length === 0 || user[0].password !== password) {
             throw error(401, 'Invalid email or password');
         }
-        return {
-            success: true
-        }
-        // console.log('User logged in:', user[0]);
+
+        const token = await new SignJWT({ 'userId': user[0].id, 'name' : user[0].name })
+            .setProtectedHeader({ alg: 'HS256' })
+            .setIssuedAt()
+            .setExpirationTime('1h')
+            .sign(new TextEncoder().encode('dev_secret_key'));
+
+        event.cookies.set('session', token, { httpOnly: true, path: '/' });
+        return redirect(303, '/');
     }
 }

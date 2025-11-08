@@ -36,6 +36,7 @@
 		"vite": "^7.1.10"
 	},
 	"dependencies": {
-		"@fontsource/fusion-pixel-8px-proportional-tc": "^5.2.5"
+		"@fontsource/fusion-pixel-8px-proportional-tc": "^5.2.5",
+		"jose": "^6.1.0"
 	}
 }
