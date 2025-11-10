@@ -30,12 +30,9 @@
             <button onclick={() => {pageChange(1)}} type="button" class="border rounded w-6 h-fit bg-sky-500 text-white cursor-pointer">1</button>
             {#if progress >= 1} 
             <button onclick={() => {pageChange(2)}} class="border rounded w-6 h-fit bg-sky-500 text-white cursor-pointer">2</button>
-            {:else}
-            <button class="border rounded w-6 h-fit bg-gray-500 text-white cursor-not-allowed">2</button>
-            {/if}
-            {#if progress >= 2} 
             <button onclick={() => {pageChange(3)}} class="border rounded w-6 h-fit bg-sky-500 text-white cursor-pointer">3</button>
             {:else}
+            <button class="border rounded w-6 h-fit bg-gray-500 text-white cursor-not-allowed">2</button>
             <button class="border rounded w-6 h-fit bg-gray-500 text-white cursor-not-allowed">3</button>
             {/if}
         </ul>
@@ -43,7 +40,7 @@
         <Form></Form>
         {:else if page === 2}
         <Fetch id={data.users?.id}></Fetch>
-        {:else if page === 2}
+        {:else if page === 3}
         Page3
         {/if}
     </div>

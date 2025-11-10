@@ -7,6 +7,8 @@ import { users } from '$lib/server/db/schema';
 import { SignJWT } from 'jose';
 
 export const load : PageServerLoad = async (event) => {
+
+    // Seed initial users if none exist
     const allUsers = await db.select().from(users);
     if (allUsers.length === 0) {
         await db.insert(users).values([
@@ -15,6 +17,7 @@ export const load : PageServerLoad = async (event) => {
             { name: 'tony', email: 'tony@kmitl.ac.th', password: 'tonynaja' }
         ]);
     }
+
     return { users: event.locals.user };
 }
 
