@@ -8,6 +8,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>Open House : Broken Access Control</title>
 </svelte:head>
 
 <main class="min-h-screen" style="background-image: url({bg}); background-size: cover; background-position: center;">
