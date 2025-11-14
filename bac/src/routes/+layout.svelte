@@ -1,13 +1,16 @@
 <script lang="ts">
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/LOGO.jpg';
 	import Nav from '../components/nav.svelte';
+	import bg from '$lib/assets/bestBG.jpg';
 	let { children } = $props();
 </script>
 
-<Nav></Nav>
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-{@render children()}
+<main class="min-h-screen" style="background-image: url({bg}); background-size: cover; background-position: center;">
+	<Nav></Nav>
+	{@render children()}
+</main>
