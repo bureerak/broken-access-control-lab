@@ -12,6 +12,5 @@
 </svelte:head>
 
 <main class="min-h-screen" style="background-image: url({bg}); background-size: cover; background-position: center;">
-	<Nav></Nav>
 	{@render children()}
 </main>
